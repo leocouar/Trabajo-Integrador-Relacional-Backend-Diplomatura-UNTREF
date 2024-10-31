@@ -1,18 +1,14 @@
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'trailerflix'
-});
+import { Sequelize } from 'sequelize';
+process.loadEnvFile()
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to the database:', err);
-        return;
-    }
-    console.log('Connected to MySQL database');
-});
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER,process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,  
+    dialect: process.env.DB_DIALECT   
+} )
 
-module.exports = connection;
+sequelize.authenticate()
+    .then(() => console.log(`Conectado a la base de datos ${process.env.DB_DIALECT}`))
+    .catch(err => console.log('No se pudo conectar a la base de datos', err))
+
+export default sequelize;
     
