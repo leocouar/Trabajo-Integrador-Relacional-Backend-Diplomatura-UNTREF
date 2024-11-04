@@ -152,21 +152,15 @@ const updateContenido = async (id,contenidoData) =>{
 const getByfilter = async (titulo, generoId, categoriaId) =>{
   try {
     const whereConditions = {};
-
-      // Agregar condiciones según los parámetros de consulta
       if (titulo) {
         whereConditions.titulo = {
-          [Op.like]: `%${titulo}%`, // Filtrar por título
+          [Op.like]: `%${titulo}%`,
         };
       }
-
       if (generoId) {
-        // Filtrar por género
         whereConditions['$generos.id$'] = generoId;
       }
-
       if (categoriaId) {
-        // Filtrar por categoría
         whereConditions['$categoria.id$'] = categoriaId;
       }
       const contenidos = await Contenido.findAll({
@@ -174,15 +168,16 @@ const getByfilter = async (titulo, generoId, categoriaId) =>{
         include: [
           {
             model: Categoria,
-            as: 'categoria',
+            as: "categoria",
           },
           {
             model: Genero,
-            as: 'generos',
+            as: "generos",
+            through: { attributes: [] },
           },
           {
             model: Actor,
-            as: 'actores',
+            as: "actores",
             through: { attributes: [] },
           },
         ],
