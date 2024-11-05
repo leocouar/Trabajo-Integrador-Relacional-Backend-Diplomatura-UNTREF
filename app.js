@@ -2,13 +2,16 @@ import express, { json } from 'express';
 import contenidoRoutes from "./routes/contenidoRoutes.js"
 import  db  from "./conexion/database.js";
 import errorHandler from './middleware/errorHandler.js';
+import setupSwagger from './config/swagger.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
+
 app.use(json());
 app.use('/contenido', contenidoRoutes);
+
+setupSwagger(app);
 
 app.get('/', (req, res) => {
   res.send('¡Hola, mundo!');
@@ -17,11 +20,10 @@ app.get('/', (req, res) => {
 app.use((req, res, next) => {
   const error = new Error("Recurso no encontrado");
   error.status = 404;
-  next(error); // Pasa el error al manejador de errores
+  next(error);
 });
 
 app.use(errorHandler)
-// Sincronizar modelos y levantar el servidor
 const startServer = async () => {
   try {
     await db.sync(); // Sincroniza los modelos con la base de datos
