@@ -135,15 +135,13 @@ const updateContenido = async (id,contenidoData) =>{
       ],
     });
     await contenido.update(contenidoData)
-          // Actualiza las relaciones muchos a muchos
     if (contenidoData.generoIds) {
       const generos = await Genero.findAll({ where: { id: contenidoData.generoIds } });
-      await contenido.setGeneros(generos); // Establece nuevas relaciones
+      await contenido.setGeneros(generos);
     }
-
     if (contenidoData.actorIds) {
       const actores = await Actor.findAll({ where: { id: contenidoData.actorIds } });
-      await contenido.setActores(actores); // Establece nuevas relaciones
+      await contenido.setActores(actores);
     }
     return contenido
   } catch (error) {

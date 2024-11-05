@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "4eaaed96-2ef1-45f4-b186-933024ffe636",
+		"name": "API UTREF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17969636"
+	},
+	"item": [
+		{
+			"name": "get Contenido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/contenido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Contenido filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/contenido/filter?generoId=8&categoriaId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "generoId",
+							"value": "8"
+						},
+						{
+							"key": "categoriaId",
+							"value": "2"
+						},
+						{
+							"key": "titulo",
+							"value": "crow",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Contenido by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/contenido/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "103"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Contenid Editado\",\r\n  \"resumen\": \"Breve resumen del contenido Editado\",\r\n  \"poster\": \"URL_del_poster.jpg\",\r\n  \"categoriaId\": 1,\r\n  \"gen\": \"Algun género específico\",\r\n  \"generoIds\": [1, 2, 3, 4],\r\n  \"temporadas\": 3,\r\n  \"duracion\": \"2h 30m\",\r\n  \"busqueda\": \"Texto de búsqueda asociado\",\r\n  \"trailer\": \"URL_del_trailer.mp4\",\r\n  \"actorIds\": [1, 2, 6]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/contenido/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "103"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Contenido by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/contenido/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Contenido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Contenid Nuevo\",\r\n  \"resumen\": \"Breve resumen del contenido\",\r\n  \"poster\": \"URL_del_poster.jpg\",\r\n  \"categoriaId\": 1,\r\n  \"gen\": \"Algun género específico\",\r\n  \"generoIds\": [1, 2, 3],\r\n  \"temporadas\": 2,\r\n  \"duracion\": \"2h 30m\",\r\n  \"busqueda\": \"Texto de búsqueda asociado\",\r\n  \"trailer\": \"URL_del_trailer.mp4\",\r\n  \"actorIds\": [1, 2]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/contenido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/contenido/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contenido",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
