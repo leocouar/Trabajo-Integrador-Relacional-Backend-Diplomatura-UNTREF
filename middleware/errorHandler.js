@@ -17,9 +17,7 @@ function errorHandler(err, req, res, next) {
     res.status(statusCode).json({
         success: false,
         status: statusCode,
-        message,
-        // Solo incluir el stack en desarrollo
-        stack: process.env.NODE_ENV === "development" ? err.stack : undefined,
+        message
     });
 }
 
