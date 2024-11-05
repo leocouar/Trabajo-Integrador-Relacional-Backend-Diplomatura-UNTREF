@@ -2,6 +2,7 @@ import Contenido from "../models/contenido.js";
 import Categoria from "../models/categoria.js";
 import Genero from "../models/genero.js";
 import Actor from "../models/actor.js";
+import {Op} from "sequelize"
 import sequelize from "../conexion/database.js";
 
 const getAll = async () => {
@@ -152,6 +153,7 @@ const updateContenido = async (id,contenidoData) =>{
 const getByfilter = async (titulo, generoId, categoriaId) =>{
   try {
     const whereConditions = {};
+    
       if (titulo) {
         whereConditions.titulo = {
           [Op.like]: `%${titulo}%`,
@@ -163,6 +165,7 @@ const getByfilter = async (titulo, generoId, categoriaId) =>{
       if (categoriaId) {
         whereConditions['$categoria.id$'] = categoriaId;
       }
+      
       const contenidos = await Contenido.findAll({
         where: whereConditions,
         include: [

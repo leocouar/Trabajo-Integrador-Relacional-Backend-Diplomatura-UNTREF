@@ -1,0 +1,47 @@
+### Get Contenido
+GET http://localhost:3000/contenido
+
+### Get Contenido filter
+GET http://localhost:3000/contenido/filter?titulo=crow
+
+### Get Contenido by ID
+GET http://localhost:3000/contenido/103
+
+### Update Contenido by ID
+PUT http://localhost:3000/contenido/103
+Content-Type: application/json
+
+{
+  "titulo": "Contenid Editado",
+  "resumen": "Breve resumen del contenido Editado",
+  "poster": "URL_del_poster.jpg",
+  "categoriaId": 1,
+  "gen": "Algun género específico",
+  "generoIds": [1, 2, 3, 4],
+  "temporadas": 3,
+  "duracion": "2h 30m",
+  "busqueda": "Texto de búsqueda asociado",
+  "trailer": "URL_del_trailer.mp4",
+  "actorIds": [1, 2, 6]
+}
+
+### Delete Contenido by ID
+DELETE http://localhost:3000/contenido/102
+
+### Add Contenido
+POST http://localhost:3000/contenido
+Content-Type: application/json
+
+{
+  "titulo": "Contenid Nuevo",
+  "resumen": "Breve resumen del contenido",
+  "poster": "URL_del_poster.jpg",
+  "categoriaId": 1,
+  "gen": "Algun género específico",
+  "generoIds": [1, 2, 3],
+  "temporadas": 2,
+  "duracion": "2h 30m",
+  "busqueda": "Texto de búsqueda asociado",
+  "trailer": "URL_del_trailer.mp4",
+  "actorIds": [1, 2]
+}
