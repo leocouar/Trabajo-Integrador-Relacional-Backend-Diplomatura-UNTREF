@@ -3,6 +3,8 @@ import contenidoRoutes from "./routes/contenidoRoutes.js"
 import  db  from "./conexion/database.js";
 import errorHandler from './middleware/errorHandler.js';
 import setupSwagger from './config/swagger.js';
+import dotenv from 'dotenv';
+dotenv.config
 
 const app = express();
 const PORT = process.env.PORT || 3000;
