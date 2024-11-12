@@ -77,8 +77,6 @@ const save = async (contenidoData) => {
       });
       await nuevoContenido.addGeneros(generos, { transaction });
     }
-
-
     await transaction.commit();
     return nuevoContenido;
   } catch (error) {

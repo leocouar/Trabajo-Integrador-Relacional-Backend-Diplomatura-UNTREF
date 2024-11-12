@@ -5,10 +5,10 @@ GET http://localhost:3000/contenido
 GET http://localhost:3000/contenido/filter?titulo=crow
 
 ### Get Contenido by ID
-GET http://localhost:3000/contenido/103
+GET http://localhost:3000/contenido/106
 
 ### Update Contenido by ID
-PUT http://localhost:3000/contenido/103
+PUT http://localhost:3000/contenido/106
 Content-Type: application/json
 
 {
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 ### Delete Contenido by ID
-DELETE http://localhost:3000/contenido/102
+DELETE http://localhost:3000/contenido/106
 
 ### Add Contenido
 POST http://localhost:3000/contenido
